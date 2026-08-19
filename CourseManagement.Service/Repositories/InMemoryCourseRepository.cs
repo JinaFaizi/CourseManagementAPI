@@ -9,7 +9,7 @@ public class InMemoryCourseRepository : ICourseRepository
     private readonly List<Course> courses = new();
     public Course Create(Course course)
     {
-        Course.CourseId = courses.Count + 1;
+        course.CourseId = courses.Count + 1;
         courses.Add(course);
         return course;
     }
@@ -24,7 +24,7 @@ public class InMemoryCourseRepository : ICourseRepository
         return courses.FirstOrDefault(c => c.CourseId == id);
     }
 
-    public Course? Update(int id, string courseName)
+    public Course? Update(int id, Course course)
     {
         var existingCourse = GetById(id);
 
@@ -33,11 +33,11 @@ public class InMemoryCourseRepository : ICourseRepository
             return null;
         }
         
-        existingCourse.CourseName = Course.CourseName;
-        existingCourse.CourseInstructor = Course.CourseInstructor;
-        existingCourse.CourseCategory = Course.CourseCategory;
-        existingCourse.CoursePrice = Course.CoursePrice;
-        existingCourse.CourseDuration = Course.CourseDuration;
+        existingCourse.CourseName = course.CourseName;
+        existingCourse.CourseInstructor = course.CourseInstructor;
+        existingCourse.CourseCategory = course.CourseCategory;
+        existingCourse.CoursePrice = course.CoursePrice;
+        existingCourse.CourseDuration = course.CourseDuration;
         
         return existingCourse;
     }
@@ -54,3 +54,4 @@ public class InMemoryCourseRepository : ICourseRepository
         return true;
     }
 }
+

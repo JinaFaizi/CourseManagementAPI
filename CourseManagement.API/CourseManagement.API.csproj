@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CourseManagemet.Service\CourseManagemet.Service.csproj" />
+      <ProjectReference Include="..\CourseManagement.Service\CourseManagement.Service.csproj" />
     </ItemGroup>
 
     <ItemGroup>

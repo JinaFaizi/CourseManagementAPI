@@ -1,4 +1,4 @@
-namespace CourseManagemet.Service.Models;
+namespace CourseManagement.Service.Models;
 
 public class Course
 {

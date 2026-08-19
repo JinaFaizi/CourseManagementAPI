@@ -1,8 +1,8 @@
-using CourseManagemet.Service.Models;
+using CourseManagement.Service.Models;
 
-namespace CourseManagemet.Service.Interfaces;
+namespace CourseManagement.Service.Interfaces;
 
-public interface ICourseRepository
+public interface ICourseService
 {
     Course Create(Course course);
     List<Course> GetCourses();

@@ -5,11 +5,7 @@
         <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>CourseManagemet.Service</RootNamespace>
     </PropertyGroup>
-
-    <ItemGroup>
-      <Folder Include="Repositories\" />
-      <Folder Include="Services\" />
-    </ItemGroup>
 
 </Project>

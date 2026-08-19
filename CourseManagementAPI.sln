@@ -2,11 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManagement.API", "CourseManagement.API\CourseManagement.API.csproj", "{CBFDAE5F-E9E8-40FC-A244-0D68C0F437CD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-CourseManagemetApi", "2-CourseManagemetApi", "{198D1959-72D3-4094-B9B0-BABACDFD55D3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-CourseManagementApi", "2-CourseManagementApi", "{198D1959-72D3-4094-B9B0-BABACDFD55D3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-CourseManagemetService", "1-CourseManagemetService", "{12F612AE-2DC5-4C62-AF59-774F743979C6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-CourseManagementService", "1-CourseManagementService", "{12F612AE-2DC5-4C62-AF59-774F743979C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManagemet.Service", "CourseManagemet.Service\CourseManagemet.Service.csproj", "{4297B09A-CC00-4EED-A312-5AA66D588107}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManagement.Service", "CourseManagement.Service\CourseManagement.Service.csproj", "{4297B09A-CC00-4EED-A312-5AA66D588107}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

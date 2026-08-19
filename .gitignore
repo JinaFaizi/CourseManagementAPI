@@ -1,0 +1,46 @@
+
+---
+
+# `.gitignore`
+
+برای پروژه C# / ASP.NET Core این را بگذار:
+
+```gitignore
+# Build output
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test results
+TestResults/
+*.trx
+
+# NuGet
+*.nupkg
+*.snupkg
+
+# Logs
+*.log
+
+# Local configuration
+appsettings.Development.json
+
+# User-specific files
+*.rsuser

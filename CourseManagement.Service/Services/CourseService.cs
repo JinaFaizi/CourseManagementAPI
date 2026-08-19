@@ -1,18 +1,10 @@
 using CourseManagement.Service.Interfaces;
 using CourseManagement.Service.Models;
 
-
 namespace CourseManagement.Service.Services;
 
-public class CourseService : ICourseService
+public class CourseService(ICourseRepository courseRepository) : ICourseService
 {
-    private readonly ICourseRepository courseRepository;
-    
-    public CourseService(ICourseRepository courseRepository)
-    {
-        this.courseRepository = courseRepository;
-    }
-    
     public Course Create(Course course)
     {
         return courseRepository.Create(course);

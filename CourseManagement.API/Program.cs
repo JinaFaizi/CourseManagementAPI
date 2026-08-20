@@ -1,8 +1,7 @@
-﻿using CourseManagement.Service.Interfaces;
-using CourseManagement.Service.Repositories;
-using CourseManagement.Service.Services;
+﻿
 using CourseManagement.Service.Data;
 using Microsoft.EntityFrameworkCore;
+using CourseManagement.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,12 +12,10 @@ builder.Services.AddDbContext<CourseDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection")
     );
 });
-
+builder.Services.AddCourseServices();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<ICourseRepository, SqlCourseRepository>();
-builder.Services.AddScoped<ICourseService, CourseService>();
 
 var app = builder.Build();
 

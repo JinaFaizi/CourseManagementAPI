@@ -1,8 +1,8 @@
-namespace CourseManagement.Service.Models;
+namespace CourseManagement.Service.Entities;
 
-public class Course
+public class Course : BaseEntity<int>
 {
-    public int CourseId { get; set; }
+   
     public string CourseName { get; set; } = string.Empty;
     public string CourseInstructor { get; set; } = string.Empty;
     public string CourseCategory { get; set; } = string.Empty;

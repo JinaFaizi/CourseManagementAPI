@@ -1,4 +1,4 @@
-using CourseManagement.Service.Models;
+using CourseManagement.Service.Entities;
 
 namespace CourseManagement.Service.Interfaces;
 

@@ -1,6 +1,6 @@
 using CourseManagement.API.DTOs;
 using CourseManagement.Service.Interfaces;
-using CourseManagement.Service.Models;
+using CourseManagement.Service.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseManagement.API.Controllers;

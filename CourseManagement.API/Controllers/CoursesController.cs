@@ -2,6 +2,7 @@ using CourseManagement.API.DTOs;
 using CourseManagement.Service.Interfaces;
 using CourseManagement.Service.Entities;
 using Microsoft.AspNetCore.Mvc;
+using CourseManagement.API.DTOs.LessonDTO;
 
 namespace CourseManagement.API.Controllers;
 
@@ -21,7 +22,7 @@ public class CoursesController : ControllerBase
     {
         var courses = _courseService.GetCourses();
 
-        return Ok(courses);
+        return Ok(courses.Select(MapToDto));
     }
 
     [HttpGet("{id}")]
@@ -34,7 +35,7 @@ public class CoursesController : ControllerBase
             return NotFound();
         }
 
-        return Ok(course);
+        return Ok(MapToDto(course));
     }
 
     [HttpPost]
@@ -54,7 +55,7 @@ public class CoursesController : ControllerBase
         return CreatedAtAction(
             nameof(GetById),
             new { id = createdCourse.Id },
-            createdCourse
+            MapToDto(createdCourse)
         );
     }
 
@@ -77,7 +78,7 @@ public class CoursesController : ControllerBase
             return NotFound();
         }
 
-        return Ok(updatedCourse);
+        return Ok(MapToDto(updatedCourse));
     }
 
     [HttpDelete("{id}")]
@@ -92,4 +93,33 @@ public class CoursesController : ControllerBase
 
         return NoContent();
     }
+    
+    private CourseResponseDto MapToDto(Course course)
+    {
+        return new CourseResponseDto
+        {
+            CourseId = course.Id,
+            CourseName = course.CourseName,
+            CourseInstructor = course.CourseInstructor,
+            CategoryId = course.CategoryId,
+            CoursePrice = course.CoursePrice,
+            CourseDuration = course.CourseDuration,
+
+            Category = course.Category == null ? null : new CategoryResponseDto
+            {
+                CategoryId = course.Category.Id,
+                CategoryName = course.Category.CategoryName,
+                CategoryDescription = course.Category.CategoryDescription
+            },
+
+            Lessons = course.Lessons.Select(l => new LessonResponseDto
+            {
+                LessonId = l.Id,
+                LessonTitle = l.LessonTitle,
+                LessonDescription = l.LessonDescription,
+                CourseId = l.CourseId
+            }).ToList()
+        };
+    }
+    
 }

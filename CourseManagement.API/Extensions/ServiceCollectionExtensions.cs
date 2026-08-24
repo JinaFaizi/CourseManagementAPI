@@ -9,8 +9,14 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddCourseServices(this IServiceCollection services)
     {
+        
         services.AddScoped<ICourseRepository, SqlCourseRepository>();
+        services.AddScoped<ICategoryRepository, SqlCategoryRepository>();
+        services.AddScoped<ILessonRepository, SqlLessonRepository>();
+        
         services.AddScoped<ICourseService, CourseService>();
+        services.AddScoped<ICategoryService, CategoryService>();
+        services.AddScoped<ILessonService, LessonService>();
 
         return services;
     }

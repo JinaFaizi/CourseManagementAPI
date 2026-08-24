@@ -36,7 +36,7 @@ public class SqlCourseRepository(CourseDbContext context) : ICourseRepository
 
         existingCourse.CourseName = course.CourseName;
         existingCourse.CourseInstructor = course.CourseInstructor;
-        existingCourse.Category = course.Category;
+        existingCourse.CategoryId = course.CategoryId;
         existingCourse.CoursePrice = course.CoursePrice;
         existingCourse.CourseDuration = course.CourseDuration;
 

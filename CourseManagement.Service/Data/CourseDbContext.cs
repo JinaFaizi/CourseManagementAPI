@@ -7,6 +7,8 @@ namespace CourseManagement.Service.Data;
 public class CourseDbContext(DbContextOptions<CourseDbContext> options) : DbContext(options)
 {
     public DbSet<Course> Courses { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Lesson> Lessons { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

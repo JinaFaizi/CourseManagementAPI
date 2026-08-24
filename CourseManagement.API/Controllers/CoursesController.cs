@@ -53,7 +53,7 @@ public class CoursesController : ControllerBase
 
         return CreatedAtAction(
             nameof(GetById),
-            new { id = createdCourse.CourseId },
+            new { id = createdCourse.Id },
             createdCourse
         );
     }

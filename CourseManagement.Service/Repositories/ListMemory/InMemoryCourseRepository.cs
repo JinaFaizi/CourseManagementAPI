@@ -7,9 +7,10 @@ namespace CourseManagement.Service.Repositories;
 public class InMemoryCourseRepository : ICourseRepository
 {
     private readonly List<Course> courses = new();
+
     public Course Create(Course course)
     {
-        course.CourseId = courses.Count + 1;
+        course.Id = courses.Count + 1;
         courses.Add(course);
         return course;
     }
@@ -21,7 +22,7 @@ public class InMemoryCourseRepository : ICourseRepository
 
     public Course? GetById(int id)
     {
-        return courses.FirstOrDefault(c => c.CourseId == id);
+        return courses.FirstOrDefault(c => c.Id == id);
     }
 
     public Course? Update(int id, Course course)
@@ -45,11 +46,12 @@ public class InMemoryCourseRepository : ICourseRepository
     public bool Delete(int id)
     {
         var course = GetById(id);
+
         if (course == null)
         {
             return false;
         }
-        
+
         courses.Remove(course);
         return true;
     }

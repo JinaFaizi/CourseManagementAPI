@@ -10,3 +10,4 @@ public interface ICourseRepository
     Course? Update(int id, Course course);
     bool Delete(int id);
 }
+

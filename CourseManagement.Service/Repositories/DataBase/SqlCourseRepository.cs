@@ -22,7 +22,7 @@ public class SqlCourseRepository(CourseDbContext context) : ICourseRepository
     public Course? GetById(int id)
     {
         return context.Courses
-            .FirstOrDefault(c => c.CourseId == id);
+            .FirstOrDefault(c => c.Id == id);
     }
 
     public Course? Update(int id, Course course)

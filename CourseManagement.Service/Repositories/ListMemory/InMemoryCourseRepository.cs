@@ -36,7 +36,7 @@ public class InMemoryCourseRepository : ICourseRepository
         
         existingCourse.CourseName = course.CourseName;
         existingCourse.CourseInstructor = course.CourseInstructor;
-        existingCourse.CourseCategory = course.CourseCategory;
+        existingCourse.Category = course.Category;
         existingCourse.CoursePrice = course.CoursePrice;
         existingCourse.CourseDuration = course.CourseDuration;
         

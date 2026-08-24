@@ -44,7 +44,7 @@ public class CoursesController : ControllerBase
         {
             CourseName = dto.CourseName,
             CourseInstructor = dto.CourseInstructor,
-            CourseCategory = dto.CourseCategory,
+            Category = dto.CourseCategory,
             CoursePrice = dto.CoursePrice,
             CourseDuration = dto.CourseDuration
         };
@@ -65,7 +65,7 @@ public class CoursesController : ControllerBase
         {
             CourseName = dto.CourseName,
             CourseInstructor = dto.CourseInstructor,
-            CourseCategory = dto.CourseCategory,
+            Category = dto.Category,
             CoursePrice = dto.CoursePrice,
             CourseDuration = dto.CourseDuration
         };

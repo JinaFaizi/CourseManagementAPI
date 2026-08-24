@@ -1,6 +1,7 @@
 using CourseManagement.Service.Data;
 using CourseManagement.Service.Interfaces;
 using CourseManagement.Service.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace CourseManagement.Service.Repositories;
 
@@ -16,12 +17,17 @@ public class SqlCourseRepository(CourseDbContext context) : ICourseRepository
 
     public List<Course> GetCourses()
     {
-        return context.Courses.ToList();
+        return context.Courses
+            .Include(c => c.Category)
+            .Include(c => c.Lessons)
+            .ToList();
     }
 
     public Course? GetById(int id)
     {
         return context.Courses
+            .Include(c => c.Category)
+            .Include(c => c.Lessons)
             .FirstOrDefault(c => c.Id == id);
     }
 

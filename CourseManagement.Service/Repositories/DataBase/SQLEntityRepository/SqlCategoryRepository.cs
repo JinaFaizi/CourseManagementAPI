@@ -1,6 +1,7 @@
 using CourseManagement.Service.Data;
 using CourseManagement.Service.Interfaces;
 using CourseManagement.Service.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace CourseManagement.Service.Repositories;
 
@@ -16,7 +17,9 @@ public class SqlCategoryRepository(CourseDbContext context) : ICategoryRepositor
 
     public List<Category> GetCategories()
     {
-        return context.Categories.ToList();
+        return context.Categories
+            .Include(c => c.Courses)
+            .ToList();
     }
 
     public Category? GetById(int id)

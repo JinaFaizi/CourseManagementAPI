@@ -1,6 +1,7 @@
 using CourseManagement.Service.Data;
 using CourseManagement.Service.Interfaces;
 using CourseManagement.Service.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace CourseManagement.Service.Repositories;
 
@@ -16,7 +17,9 @@ public class SqlLessonRepository(CourseDbContext context) : ILessonRepository
 
     public List<Lesson> GetLessons()
     {
-        return context.Lessons.ToList();
+        return context.Lessons
+            .Include(l => l.Course)
+            .ToList();
     }
 
     public Lesson? GetById(int id)

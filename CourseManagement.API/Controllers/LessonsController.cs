@@ -22,7 +22,7 @@ public class LessonsController : ControllerBase
     {
         var lessons = _lessonService.GetLessons();
 
-        return Ok(lessons);
+        return Ok(lessons.Select(lesson => MapToDto(lesson)));
     }
 
     [HttpGet("{id}")]
@@ -35,7 +35,7 @@ public class LessonsController : ControllerBase
             return NotFound();
         }
 
-        return Ok(lesson);
+        return Ok(MapToDto(lesson));
     }
 
     [HttpGet("course/{courseId}")]
@@ -43,7 +43,7 @@ public class LessonsController : ControllerBase
     {
         var lessons = _lessonService.GetByCourseId(courseId);
 
-        return Ok(lessons);
+        return Ok(lessons.Select(lesson => MapToDto(lesson)));
     }
 
     [HttpPost]
@@ -61,7 +61,7 @@ public class LessonsController : ControllerBase
         return CreatedAtAction(
             nameof(GetById),
             new { id = createdLesson.Id },
-            createdLesson
+            MapToDto(createdLesson)
         );
     }
 
@@ -82,7 +82,7 @@ public class LessonsController : ControllerBase
             return NotFound();
         }
 
-        return Ok(updatedLesson);
+        return Ok(MapToDto(updatedLesson));
     }
 
     [HttpDelete("{id}")]
@@ -96,6 +96,17 @@ public class LessonsController : ControllerBase
         }
 
         return NoContent();
+    }
+
+    private static LessonResponseDto MapToDto(Lesson lesson)
+    {
+        return new LessonResponseDto
+        {
+            LessonId = lesson.Id,
+            LessonTitle = lesson.LessonTitle,
+            LessonDescription = lesson.LessonDescription,
+            CourseId = lesson.CourseId
+        };
     }
 }
 

@@ -24,7 +24,7 @@ public class CategoriesController : ControllerBase
     {
         var categories = _categoryService.GetCategories();
 
-        return Ok(categories);
+        return Ok(categories.Select(MapToDto));
     }
 
     [HttpGet("{id}")]
@@ -74,7 +74,7 @@ public class CategoriesController : ControllerBase
             return NotFound();
         }
 
-        return Ok(updatedCategory);
+        return Ok(MapToDto(updatedCategory));
     }
 
     [HttpDelete("{id}")]
@@ -88,5 +88,15 @@ public class CategoriesController : ControllerBase
         }
 
         return NoContent();
+    }
+    
+    private static CategoryResponseDto MapToDto(Category category)
+    {
+        return new CategoryResponseDto
+        {
+            CategoryId = category.Id,
+            CategoryName = category.CategoryName,
+            CategoryDescription = category.CategoryDescription
+        };
     }
 }

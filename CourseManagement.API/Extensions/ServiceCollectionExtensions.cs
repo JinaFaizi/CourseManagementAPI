@@ -1,7 +1,7 @@
-using CourseManagement.Service.Interfaces;
-using CourseManagement.Service.Repositories;
-using CourseManagement.Service.Services;
+
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
+using CourseManagement.Core.Interfaces;
 
 namespace CourseManagement.API.Extensions;
 
@@ -9,15 +9,42 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddCourseServices(this IServiceCollection services)
     {
+        var assembly = Assembly.Load("CourseManagement.Service");
         
-        services.AddScoped<ICourseRepository, SqlCourseRepository>();
-        services.AddScoped<ICategoryRepository, SqlCategoryRepository>();
-        services.AddScoped<ILessonRepository, SqlLessonRepository>();
-        
-        services.AddScoped<ICourseService, CourseService>();
-        services.AddScoped<ICategoryService, CategoryService>();
-        services.AddScoped<ILessonService, LessonService>();
+        var types = assembly.GetTypes()
+            .Where(t => t.IsClass && !t.IsAbstract)
+            .ToList();
 
+        foreach (var type in types)
+        {
+            
+            var serviceInterface = type.GetInterfaces()
+                .FirstOrDefault(i =>
+                    i != typeof(IScopedDependency) &&
+                    i != typeof(ITransientDependency) &&
+                    i != typeof(ISingletonDependency));
+
+            if (serviceInterface == null)
+                continue;
+            
+            
+            if (typeof(IScopedDependency).IsAssignableFrom(type))
+            {
+                services.AddScoped(serviceInterface, type);
+            }
+            
+            else if (typeof(ITransientDependency).IsAssignableFrom(type))
+            {
+                services.AddTransient(serviceInterface, type);
+            }
+
+            else if (typeof(ISingletonDependency).IsAssignableFrom(type))
+            {
+                services.AddSingleton(serviceInterface, type);
+            }
+            
+            
+        }
         return services;
     }
 }

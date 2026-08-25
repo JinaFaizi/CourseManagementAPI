@@ -1,3 +1,4 @@
+using CourseManagement.Core.Interfaces;
 using CourseManagement.Service.Data;
 using CourseManagement.Service.Interfaces;
 using CourseManagement.Service.Entities;
@@ -5,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CourseManagement.Service.Repositories;
 
-public class SqlCategoryRepository(CourseDbContext context) : ICategoryRepository
+public class SqlCategoryRepository(CourseDbContext context) : ICategoryRepository, IScopedDependency
 {
     public Category Create(Category category)
     {

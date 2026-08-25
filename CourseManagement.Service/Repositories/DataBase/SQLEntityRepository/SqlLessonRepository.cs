@@ -1,3 +1,4 @@
+using CourseManagement.Core.Interfaces;
 using CourseManagement.Service.Data;
 using CourseManagement.Service.Interfaces;
 using CourseManagement.Service.Entities;
@@ -5,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CourseManagement.Service.Repositories;
 
-public class SqlLessonRepository(CourseDbContext context) : ILessonRepository
+public class SqlLessonRepository(CourseDbContext context) : ILessonRepository, IScopedDependency
 {
     public Lesson Create(Lesson lesson)
     {

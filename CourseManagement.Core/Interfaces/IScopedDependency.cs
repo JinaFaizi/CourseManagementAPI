@@ -1,6 +1,7 @@
+
 namespace CourseManagement.Core.Interfaces;
 
-public class IScopedDependency
+public interface IScopedDependency
 {
     
 }

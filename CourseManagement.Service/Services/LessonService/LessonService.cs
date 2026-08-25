@@ -1,9 +1,10 @@
 using CourseManagement.Service.Interfaces;
 using CourseManagement.Service.Entities;
+using CourseManagement.Core.Interfaces;
 
 namespace CourseManagement.Service.Services;
 
-public class LessonService(ILessonRepository lessonRepository) : ILessonService
+public class LessonService(ILessonRepository lessonRepository) : ILessonService, IScopedDependency
 {
     public Lesson Create(Lesson lesson)
     {

@@ -1,9 +1,10 @@
 using CourseManagement.Service.Interfaces;
 using CourseManagement.Service.Entities;
+using CourseManagement.Core.Interfaces;
 
 namespace CourseManagement.Service.Services;
 
-public class CategoryService(ICategoryRepository categoryRepository) : ICategoryService
+public class CategoryService(ICategoryRepository categoryRepository) : ICategoryService, IScopedDependency
 {
     public Category Create(Category category)
     {

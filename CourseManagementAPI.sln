@@ -2,11 +2,15 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManagement.API", "CourseManagement.API\CourseManagement.API.csproj", "{CBFDAE5F-E9E8-40FC-A244-0D68C0F437CD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-CourseManagementAPI", "2-CourseManagementAPI", "{198D1959-72D3-4094-B9B0-BABACDFD55D3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-CourseManagementAPI", "3-CourseManagementAPI", "{198D1959-72D3-4094-B9B0-BABACDFD55D3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-CourseManagementService", "1-CourseManagementService", "{12F612AE-2DC5-4C62-AF59-774F743979C6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-CourseManagementService", "2-CourseManagementService", "{12F612AE-2DC5-4C62-AF59-774F743979C6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManagement.Service", "CourseManagement.Service\CourseManagement.Service.csproj", "{4297B09A-CC00-4EED-A312-5AA66D588107}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-CourseManagementCore", "1-CourseManagementCore", "{0C60D391-C2CD-462C-8473-2CC232CB6BC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManagement.Core", "CourseManagement.Core\CourseManagement.Core.csproj", "{A312E3EC-AB04-4388-8FC2-7BE4EDFB4BB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,9 +26,14 @@ Global
 		{4297B09A-CC00-4EED-A312-5AA66D588107}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4297B09A-CC00-4EED-A312-5AA66D588107}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4297B09A-CC00-4EED-A312-5AA66D588107}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A312E3EC-AB04-4388-8FC2-7BE4EDFB4BB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A312E3EC-AB04-4388-8FC2-7BE4EDFB4BB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A312E3EC-AB04-4388-8FC2-7BE4EDFB4BB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A312E3EC-AB04-4388-8FC2-7BE4EDFB4BB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CBFDAE5F-E9E8-40FC-A244-0D68C0F437CD} = {198D1959-72D3-4094-B9B0-BABACDFD55D3}
 		{4297B09A-CC00-4EED-A312-5AA66D588107} = {12F612AE-2DC5-4C62-AF59-774F743979C6}
+		{A312E3EC-AB04-4388-8FC2-7BE4EDFB4BB6} = {0C60D391-C2CD-462C-8473-2CC232CB6BC9}
 	EndGlobalSection
 EndGlobal

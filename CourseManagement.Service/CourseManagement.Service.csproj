@@ -21,4 +21,8 @@
       <Folder Include="Entities\Course\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\CourseManagement.Core\CourseManagement.Core.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -29,9 +29,23 @@ public class CourseDbContext(DbContextOptions<CourseDbContext> options) : DbCont
         {
             modelBuilder.Entity(entityType);
         }
+        
+        // modelBuilder.Entity<Course>()
+        //     .Property(c => c.CoursePrice)
+        //     .HasPrecision(18, 2);
 
         modelBuilder.Entity<Course>()
-            .Property(c => c.CoursePrice)
-            .HasPrecision(18, 2);
+            .HasOne(course => course.Category)
+            .WithMany(category => category.Courses)
+            .HasForeignKey(course => course.CategoryId);
+        
+        modelBuilder.Entity<Lesson>()
+            .HasOne(lesson => lesson.Course)
+            .WithMany(course => course.Lessons)
+            .HasForeignKey(lesson => lesson.CourseId);
+        
+        modelBuilder.Entity<Course>()
+            .Property(course => course.CoursePrice)
+            .HasPrecision(18, 4);
     }
 }

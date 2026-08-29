@@ -1,4 +1,4 @@
-namespace CourseManagement.Core.Interfaces;
+namespace CourseManagement.Service.Interfaces;
 
 public interface IEntity<TId>
 {

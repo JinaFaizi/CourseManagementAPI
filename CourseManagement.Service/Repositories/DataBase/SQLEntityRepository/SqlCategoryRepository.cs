@@ -3,10 +3,11 @@ using CourseManagement.Service.Data;
 using CourseManagement.Service.Interfaces;
 using CourseManagement.Service.Entities;
 using Microsoft.EntityFrameworkCore;
+using DbContext = CourseManagement.Service.Data.DbContext;
 
 namespace CourseManagement.Service.Repositories;
 
-public class SqlCategoryRepository(CourseDbContext context) : ICategoryRepository, IScopedDependency
+public class SqlCategoryRepository(DbContext context) : ICategoryRepository, IScopedDependency
 {
     public Category Create(Category category)
     {

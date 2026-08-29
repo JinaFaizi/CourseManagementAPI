@@ -5,12 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using DbContext = CourseManagement.Service.Data.DbContext;
 
 #nullable disable
 
 namespace CourseManagemet.Service.Migrations
 {
-    [DbContext(typeof(CourseDbContext))]
+    [DbContext(typeof(DbContext))]
     [Migration("20260824211656_InitialCreate")]
     partial class InitialCreate
     {

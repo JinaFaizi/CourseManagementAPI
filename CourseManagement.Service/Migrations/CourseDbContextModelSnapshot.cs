@@ -4,12 +4,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using DbContext = CourseManagement.Service.Data.DbContext;
 
 #nullable disable
 
 namespace CourseManagemet.Service.Migrations
 {
-    [DbContext(typeof(CourseDbContext))]
+    [DbContext(typeof(DbContext))]
     partial class CourseDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

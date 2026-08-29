@@ -1,6 +1,6 @@
 namespace CourseManagement.Service.Entities;
 
-public class Course : BaseEntity<int>
+public class Course : BaseEntity
 {
    
     public string CourseName { get; set; } = string.Empty;

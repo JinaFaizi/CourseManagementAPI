@@ -3,10 +3,11 @@ using CourseManagement.Service.Data;
 using CourseManagement.Service.Interfaces;
 using CourseManagement.Service.Entities;
 using Microsoft.EntityFrameworkCore;
+using DbContext = CourseManagement.Service.Data.DbContext;
 
 namespace CourseManagement.Service.Repositories;
 
-public class SqlLessonRepository(CourseDbContext context) : ILessonRepository, IScopedDependency
+public class SqlLessonRepository(DbContext context) : ILessonRepository, IScopedDependency
 {
     public Lesson Create(Lesson lesson)
     {
